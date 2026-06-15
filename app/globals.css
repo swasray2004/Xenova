@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-base: #F8F9FB;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F0F4FF;
+  --color-primary: #2a8cf5;
+  --color-primary-light: #52a3f7;
+  --color-cream: #1F2937;
+  --color-cream-dim: #6B7280;
+  --color-accent: #EC4899;
+  --color-yellow: #FBBF24;
+  --color-cyan: #06B6D4;
+  --color-purple: #A78BFA;
+  --color-pink: #F472B6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-cream);
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F8F9FB 0%, #F0F4FF 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-base); }
+::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-light); }
+
+/* Selection */
+::selection { background: #2a8cf555; color: var(--color-cream); }
+
+/* Font utilities */
+.font-syne { font-family: var(--font-syne), sans-serif; }
+.font-inter { font-family: var(--font-inter), sans-serif; }
+
+/* Glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* Glow effect */
+.glow-purple {
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2), 0 0 60px rgba(124, 58, 237, 0.05);
+}
+
+/* Animated gradient border */
+@keyframes border-spin {
+  100% { transform: rotate(360deg); }
+}
+
+.gradient-border {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #7C3AED, #2D1B69, #7C3AED);
+  z-index: -1;
+}
+
+/* Pulse dot */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Typing animation */
+@keyframes typing-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: "|";
+  animation: typing-cursor 0.8s ease infinite;
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #1A1A2E 25%, #2D1B69 50%, #1A1A2E 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Flow animation for the signal path */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -20; }
+}
+
+.flow-path {
+  stroke-dasharray: 4 4;
+  animation: dash-flow 0.5s linear infinite;
+}
+
+/* Number counter */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.count-enter { animation: count-up 0.3s ease forwards; }
+
+/* Status badge glow */
+.status-active { box-shadow: 0 0 8px #34D39966; }
+.status-warning { box-shadow: 0 0 8px #FB923C66; }
+.status-error { box-shadow: 0 0 8px #F43F5E66; }
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth fade in */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Aurora background animation */
+@keyframes aurora-shift {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.aurora-bg {
+  animation: aurora-shift 3s ease-in-out infinite;
+}
